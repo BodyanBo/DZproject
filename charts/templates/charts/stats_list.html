@@ -1,0 +1,64 @@
+<% load static%>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<html>
+    <head>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <div > <input type= "date"></div>
+                </button>
+              </div>
+            </div>
+          </nav>
+    </head>
+    <body>
+      <div class="container theme-showcase" role="main">
+
+
+        <div class="tables page-header">
+          <div >
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Месяц</th>
+                  <th>ТО</th>
+                  <th>Город</th>
+                  <th>Офис</th>
+                  <th>Гуппа показателей</th>
+                  <th>Показатель</th>
+                  <th>Значение</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for asset in assets %}
+                  <tr>
+                    <td>{{ asset.month }}</td>
+                    <td>{{ asset.office.city.region.name }}</td>
+                    <td>{{ asset.office.city.name }}</td>
+                    <td>{{ asset.office.office_id }}</td>
+                    <td>{{ asset.indicator.category.name }}</td>
+                    <td>{{ asset.indicator.indicator_name.name }}</td>
+                    <td>{{ asset.value }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+    </body>
+    
+      
+      
+      
+      
+      
+      
+      
+      
+      
+          </div> <!-- /container -->
+
+</html>
